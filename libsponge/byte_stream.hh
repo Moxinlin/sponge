@@ -2,6 +2,7 @@
 #define SPONGE_LIBSPONGE_BYTE_STREAM_HH
 
 #include <string>
+#include <vector>
 
 //! \brief An in-order byte stream.
 
@@ -11,6 +12,10 @@
 class ByteStream {
   private:
     // Your code here -- add private members as necessary.
+    std::vector<char> _buffer{};
+    size_t _read_idx = 0, _buf_size = 0, _buf_cap = 0;
+    size_t _read_size = 0, _write_size = 0;
+    bool _input_end = false, _eof = false;
 
     // Hint: This doesn't need to be a sophisticated data structure at
     // all, but if any of your tests are taking longer than a second,
